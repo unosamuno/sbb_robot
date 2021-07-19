@@ -1,5 +1,5 @@
 import numpy as np
-import os, shutil, glob
+import os, shutil
 from typing import List
 
 # name all color images as string values
@@ -15,7 +15,6 @@ nrof_imgs2: List[str] = len(os.listdir(test2_imgs)) #351
 nrof_imgs3: List[str] = len(os.listdir(test3_imgs)) #938
 nrof_imgs4: List[str] = len(os.listdir(test4_imgs)) #1605
 nrof_imgs_tot: List[str] = len(os.listdir(test_imgs_merged)) #3597
-print(nrof_imgs_tot)
 
 #rename colorized images in folder test_imgs_merged so that it's iterable
 #only run once!
@@ -29,3 +28,4 @@ for filename in os.listdir(path):
     os.rename(src, dst)
     i += 1
 """
+
