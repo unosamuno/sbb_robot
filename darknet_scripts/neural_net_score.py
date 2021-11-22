@@ -58,7 +58,3 @@ plt.ylabel("Frame Count")
 plt.xlabel("Score")
 plt.legend()
 plt.show()
-<<<<<<< HEAD
-
-=======
->>>>>>> 432faebe3a97a1e3d83a41d7e75c6064128f9f9e
