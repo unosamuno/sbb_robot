@@ -3,8 +3,8 @@ import pandas as pd
 import cv2 as cv
 
 img_list, txt_list = glob.glob("*.jpg"), glob.glob("*.txt")
-img_list = glob.glob("/home/samuel/data/sbb_initial/train/ds_roboflow/train/*.png")
-txt_list = glob.glob("/home/samuel/data/sbb_initial/train/ds_roboflow/train/*.txt")
+img_list = glob.glob("/home/samuel/data/round2/train_jpg/*.png")
+txt_list = glob.glob("/home/samuel/data/round2/train_jpg/*.txt")
 img_list.sort()
 txt_list.sort()
 

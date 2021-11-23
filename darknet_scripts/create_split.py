@@ -2,7 +2,7 @@ import glob, os
 # Current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 print(current_dir)
-current_dir = '/home/tbehrler/data/sbb/data'
+current_dir = '/home/tbhuser/data/evaluation3_color/train'
 # Percentage of images to be used for the test set
 percentage_test = 10;
 # Create and/or truncate train.txt and test.txt

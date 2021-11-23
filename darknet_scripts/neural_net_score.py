@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
 
-data = pd.read_csv("/home/samuel/sbb_robot/results.csv", header=None)
+data = pd.read_csv("/home/samuel/sbb_robot/results_2.csv", header=None)
 
 pylon_scores = []
 human_scores = []
@@ -47,7 +47,7 @@ plt.show()
 plt.hist(train_scores, label='train scores', color='green')
 plt.ylabel("Frame Count")
 plt.xlabel("Score")
-plt.text(34, 13, s="Average Score: "+ str(train_avg_score))
+plt.text(34, 6, s="Average Score: "+ str(train_avg_score))
 plt.legend()
 plt.show()
 
