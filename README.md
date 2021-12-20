@@ -36,10 +36,17 @@ With this we get an output like: \
 ### Validation
 After Testing, a validation set with 100 labeled images were fed into the network. \
 To feed multiple (validation) images into the network and get the output as a .txt file: \
-`./darknet detector test /home/tbhuser/data/evaluation3_color/valid/obj.data cfg/yolo-obj.cfg backup/yolo-obj_best.weights -dont_show -ext_output < /home/tbhuser/data/evaluation3_color/train/train.txt > result.txt` \
+`./darknet detector test /home/.../data/evaluation3_color/valid/obj.data cfg/yolo-obj.cfg backup/yolo-obj_best.weights -dont_show -ext_output < /home/.../data/evaluation3_color/train/train.txt > result.txt` \
 The output then was analysed with another [python script](./darknet_scripts/neural_net_score.py). \
 
-#### 
-
+### Video
+How to feed a video into the network:
+1. Choose an ordered set of images and name them subsequently (e.g. 000.jpg - 299.jpg)
+2. Create a video with those images using [ffmpeg](https://hamelot.io/visualization/using-ffmpeg-to-convert-a-set-of-images-into-a-video/)
+   1. Choose the right framerate (10 fps)
+   2. Choose the right resolution (same as images)
+3. To save the results video including bounding boxes to an additional video:
+   1. `./darknet detector demo /home/.../data/evaluation3_color/train/obj.data  cfg/yolo-obj.cfg backup/weights_color/yolo-obj_best.weights test.mp4 -dont_show -out_filename res.avi`
+   2.  Make sure that the input video test.mp4 is in the same directory
 
 
