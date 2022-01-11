@@ -10,7 +10,7 @@ def show_bounding_boxes(dir_path: str) -> None:
         The script follows the yolo format.
     """
     
-    for image_file in glob.glob(dir_path + '/*.png'):
+    for image_file in glob.glob("/home/samuel/data/Videos/detection_video3/*.png"):
         image = cv2.imread(image_file)
         height, width, _ = image.shape
 
@@ -26,11 +26,14 @@ def show_bounding_boxes(dir_path: str) -> None:
                 # BGR color format
                 if annot[0] == '0':
                     color = (0,255,0)  # Mask is worn correctly (Green color)
-                    label = 'Good'
-                else:
+                    label = 'train'
+                elif annot[0] == '1':
                     color = (0,0,255)  # Mask is either not worn correctly or not worn at all (Red color)
-                    label = 'Bad'
-                
+                    label = 'human'
+                else:
+                    color = (255, 0, 0)  # Mask is either not worn correctly or not worn at all (Blue color)
+                    label = 'pylon'
+
                 cv2.putText(image,
                         label, 
                         (x1, y1 - 10),
@@ -43,13 +46,17 @@ def show_bounding_boxes(dir_path: str) -> None:
         
         k = cv2.waitKey(0) & 0xFF
         cv2.imshow(image_file.split("sss")[-1], image)
+
+        name = "pic" + str(image_file)
+        cv2.imwrite(name, image)
+
         if k == 27:
             cv2.destroyAllWindows()
             break
 
 def parser() -> None:
     parser = argparse.ArgumentParser(description="Display Bounding-Boxes on png images with yolo format (<label> <x_center> <y_center> <width> <height>).")
-    parser.add_argument("--input", type=str, default="", help="The path of the folder that contains the png images with their corresponding txt annotations.")
+    parser.add_argument("--input", type=str, default="/home/samuel/data/Videos/detection_video3/", help="The path of the folder that contains the png images with their corresponding txt annotations.")
     return parser.parse_args()
 
 def check_arguments_errors(args : argparse.Namespace) -> None:

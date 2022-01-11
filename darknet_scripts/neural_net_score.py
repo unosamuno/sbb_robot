@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
 
-data = pd.read_csv("/home/samuel/sbb_robot/results_2.csv", header=None)
+data = pd.read_csv("/home/samuel/sbb_robot/results_color.csv", header=None)
 
 pylon_scores = []
 human_scores = []
@@ -29,14 +29,14 @@ pylon_avg_score = int(np.mean(pylon_scores))
 human_avg_score = int(np.mean(human_scores))
 train_avg_score = int(np.mean(train_scores))
 
-plt.hist(pylon_scores, label='pylon scores', color='blue')
+plt.hist(pylon_scores, label='pylon scores color', color='blue')
 plt.ylabel("Frame Count")
 plt.xlabel("Score")
-plt.text(25, 400, s="Average Score: "+ str(pylon_avg_score))
+plt.text(30, 350, s="Average Score: "+ str(pylon_avg_score))
 plt.legend()
 plt.show()
 
-plt.hist(human_scores, label='human scores', color='orange')
+plt.hist(human_scores, label='human scores color', color='orange')
 plt.ylabel("Frame Count")
 plt.xlabel("Score")
 plt.text(30, 200, s="Average Score: "+ str(human_avg_score))
@@ -44,16 +44,16 @@ plt.legend()
 plt.show()
 
 
-plt.hist(train_scores, label='train scores', color='green')
+plt.hist(train_scores, label='train scores color', color='green')
 plt.ylabel("Frame Count")
 plt.xlabel("Score")
-plt.text(34, 6, s="Average Score: "+ str(train_avg_score))
+plt.text(40, 3, s="Average Score: "+ str(train_avg_score))
 plt.legend()
 plt.show()
 
-plt.hist(pylon_scores, label='pylon scores')
-plt.hist(human_scores, label='human scores')
-plt.hist(train_scores, label='train scores')
+plt.hist(pylon_scores, label='pylon scores color')
+plt.hist(human_scores, label='human scores color')
+plt.hist(train_scores, label='train scores color')
 plt.ylabel("Frame Count")
 plt.xlabel("Score")
 plt.legend()

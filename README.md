@@ -6,7 +6,7 @@ A gaming computer was used and followed by this [manual](https://github.com/Alex
 
 ## Procedure
 ### Data
-Image sets were counted, sorted and merged with a [python script](./count_sort.py).
+Image sets were counted, sorted and merged with a [python script](darknet_scripts/count_sort.py).
 For training, validation and testing another [python script](./darknet_scripts/create_txt.py) was used to make a list of all images to feed the computer.
 
 ### Labeling
