@@ -3,12 +3,17 @@ import glob
 import os
 import matplotlib.pyplot as plt
 import argparse
+from os import listdir
+from os.path import isfile, join
 
 def show_bounding_boxes(dir_path: str) -> None:
     """ Auxiliary function that displays the bounding boxes of images in folder <dir_path>.
         The folder should contain both the .png images and their corresponding .txt annotation files.
         The script follows the yolo format.
     """
+    mypath = "/home/samuel/data/Videos/detection_video3/"
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    print(onlyfiles)
     
     for image_file in glob.glob("/home/samuel/data/Videos/detection_video3/*.png"):
         image = cv2.imread(image_file)
@@ -46,10 +51,8 @@ def show_bounding_boxes(dir_path: str) -> None:
         
         k = cv2.waitKey(0) & 0xFF
         cv2.imshow(image_file.split("sss")[-1], image)
-
-        name = "pic" + str(image_file)
-        cv2.imwrite(name, image)
-
+        for n in range(0, len(onlyfiles)):
+            cv2.imwrite(f'/home/samuel/data/Videos/finalVideo/image_{n}.png', image)
         if k == 27:
             cv2.destroyAllWindows()
             break
